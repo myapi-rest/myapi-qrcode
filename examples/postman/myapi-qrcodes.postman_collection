@@ -1,0 +1,29 @@
+{
+    "info": {
+        "name": "myapi.rest \u2014 QR Code API",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+    },
+    "item": [
+        {
+            "name": "Generate QR Code",
+            "request": {
+                "method": "POST",
+                "header": [
+                    {
+                        "key": "Authorization",
+                        "value": "Bearer <API_KEY>"
+                    },
+                    {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                    }
+                ],
+                "url": "https://api.myapi.rest/api/qrcode/generate",
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\n    \"data\": \"https://marquis.it.com\",\n    \"output_format\": \"PNG\",\n    \"pixels_per_module\": 20,\n    \"margin\": 0,\n    \"ecc_level\": \"H\",\n    \"dark_color_hex\": \"#000000\",\n    \"light_color_hex\": \"#FFFFFF\",\n    \"draw_quiet_zones\": true,\n    \"image_base64\": \"\",\n    \"logo_size_percent\": 20\n}"
+                }
+            }
+        }
+    ]
+}
