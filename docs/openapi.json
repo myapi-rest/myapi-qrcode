@@ -1,0 +1,60 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "myapi.rest — QR Code API",
+    "version": "1.0.0"
+  },
+  "servers": [
+    { "url": "https://api.myapi.rest" }
+  ],
+  "paths": {
+    "/api/qrcode/generate": {
+      "post": {
+        "summary": "Generate a QR code",
+        "security": [{ "bearerAuth": [] }],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "data": { "type": "string" },
+                  "output_format": { "type": "string" },
+                  "pixels_per_module": { "type": "integer" },
+                  "margin": { "type": "integer" },
+                  "ecc_level": { "type": "string" }
+                },
+                "required": ["data", "output_format"]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "QR code generated",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": { "type": "integer" },
+                    "qrcode": { "type": "string" }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "securitySchemes": {
+      "bearerAuth": {
+        "type": "http",
+        "scheme": "bearer"
+      }
+    }
+  }
+}
